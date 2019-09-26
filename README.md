@@ -7,4 +7,6 @@ This is an animation library，Common animation effects
 
 ### js-animation
 
+- shutters
+
 
