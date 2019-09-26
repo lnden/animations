@@ -1,0 +1,105 @@
+body, html {
+    margin: 0;
+    padding: 0;
+}
+
+.content {
+    position: absolute;
+    top: 200px;
+    left: 500px;
+}
+
+.tips_click {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+}
+
+.tips_click span {
+    position: absolute;
+    top: 11px;
+    left: 14px;
+    color: #e69800;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 16px;
+    z-index: 1;
+}
+
+.tips_click b {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    display: block;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, .6);
+}
+
+/*执行动画*/
+.tips_click b:nth-of-type(1) {
+    -webkit-animation: click1 1s linear infinite;
+    animation: Expand1 1s linear infinite;
+}
+
+.tips_click b:nth-of-type(2) {
+    -webkit-animation: click2 1s linear infinite;
+    animation: Expand2 1s linear infinite;
+}
+
+/*动画执行过程*/
+@-webkit-keyframes Expand1 {
+    0% {
+        opacity: .8;
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+    100% {
+        opacity: 0;
+        -webkit-transform: scale(2);
+        transform: scale(2);
+    }
+}
+
+@keyframes Expand1 {
+    0% {
+        opacity: .8;
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+    100% {
+        opacity: 0;
+        -webkit-transform: scale(2);
+        transform: scale(2);
+    }
+}
+
+@-webkit-keyframes Expand2 {
+    0% {
+        opacity: .8;
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+    100% {
+        opacity: 0;
+        -webkit-transform: scale(3);
+        transform: scale(3);
+    }
+}
+
+@keyframes Expand2 {
+    0% {
+        opacity: .8;
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+    100% {
+        opacity: 0;
+        -webkit-transform: scale(3);
+        transform: scale(3);
+    }
+}
