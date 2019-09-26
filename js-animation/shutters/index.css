@@ -1,0 +1,28 @@
+body,ul{
+    padding: 0;
+    margin: 0;
+}
+/*行业解决方案*/
+.accordion{height:480px;margin:70px auto 50px;color:#FFF;position:relative;}
+.accordion li{width:175px;height:480px;position:relative;overflow:hidden;float:left;}
+.accordion li.last{position:absolute;right:0px;bottom:0px;}
+.accordion .link-area{position:absolute;top:0;right:0;bottom:0;left:0;z-index:9;}
+.accordion .text-mask{position:absolute;top:0;right:0;bottom:0;left:0;opacity:0.5;filter:alpha(opacity=50);-moz-opacity:0.5;opacity:0.5;background:#000;z-index:1;}
+.accordion .text-area{position:absolute;top:0;right:0;bottom:0;left:0;width:175px;overflow:hidden;z-index:2;}
+.accordion .text-area .ico{display:block;width:35px;height:35px;margin:320px auto 0;background: url(https://wx.gtimg.com/pay/img/home/sprite.png?v=20190327) no-repeat;overflow: hidden;}
+.accordion .text-area .ico-ecommerce{background-position:0 -214px;}
+.accordion .text-area .ico-supermarket{background-position:-39px -214px;}
+.accordion .text-area .ico-drink{background-position:-155px -214px;}
+.accordion .text-area .ico-school{background-position:-74px -214px;}
+.accordion .text-area .ico-parking{background-position:-111px -214px;}
+.accordion .text-area .ico-social{background-position:-200px -214px;}
+.accordion .text-area .tit{margin-top:12px;font-size:18px;text-align:center;position:relative;}
+.accordion .text-area .tit:after{width:36px;bottom:-18px;margin-left:-18px;background:#B8B8B7;}
+.accordion .text-area .txt{height:62px; width:284px; font-size:14px; overflow:hidden;margin-top:10px; margin-left:57px; line-height:21px; letter-spacing: 0.2px; color: #fff;}
+.accordion .text-area .txt,.accordion .text-area .opt{display:none;}
+.accordion .selected .text-area,.accordion .selected .text-mask{width:351px; height:113px; padding:30px;top:288px;right:16px;bottom:41px;left:auto;}
+.accordion .selected .text-area .ico{margin-top:0px; float: left;}
+.accordion .selected .text-area .tit{font-size:20px;font-weight:bold; float:left; margin-top:-8px; margin-left: 22px;}
+.accordion .selected .tit:after{width:39px;bottom:-7px;margin-left:-38px;background:#fff; opacity: 0.24;}
+.accordion .selected .text-area .txt,.accordion li.selected .text-area .opt{display:block; float: left;}
+.accordion .selected .text-mask{filter:alpha(opacity=80);-moz-opacity:0.8;opacity:0.8;-moz-border-radius:5px 0px 0px 5px;-webkit-border-radius:5px 0px 0px 5px;border-radius:5px 0px 0px 5px; background: #00C250;}

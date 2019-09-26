@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="./index.css">
+</head>
+<body>
+    <div class="accordion">
+        <ul class="accordion-ul"style="overflow: auto">
+            <li class="selected" style="background: url(&quot;https://wx.gtimg.com/pay/img/home/solution/1.jpg&quot;) no-repeat rgb(245, 241, 206); width: 474px; overflow: hidden;">
+                <a class="link-area" href="#" target="_blank"></a>
+                <div class="text-area">
+                    <i class="ico ico-ecommerce"></i>
+                    <h3 class="tit underline">生活服务</h3>
+                    <p class="txt">通过微信整合能力，助力挖掘流量洼地，整合平台内容、服务和支付能力，为用户提供更友好的体验，助力提升行业效率。</p>
+                </div>
+                <div class="text-mask"></div>
+            </li>
+            <li style="background: url(&quot;https://wx.gtimg.com/pay/img/home/solution/2.jpg&quot;) no-repeat rgb(254, 253, 251); overflow: hidden; width: 175px;">
+                <a class="link-area" href="#" target="_blank"></a>
+                <div class="text-area">
+                    <i class="ico ico-supermarket"></i>
+                    <h3 class="tit underline">智慧零售</h3>
+                    <p class="txt">顾客通过扫码购、自助收银等服务，运用微信大数据，对用户进行精准触达，实现会员、营销、导购的一站式运营。</p>
+                </div>
+                <div class="text-mask"></div>
+            </li>
+            <li style="background: url(&quot;https://wx.gtimg.com/pay/img/home/solution/3.jpg&quot;) no-repeat rgb(254, 253, 251); overflow: hidden; width: 175px;">
+                <a class="link-area" href="#" target="_blank"></a>
+                <div class="text-area">
+                    <i class="ico ico-drink"></i>
+                    <h3 class="tit underline">智慧餐饮</h3>
+                    <p class="txt">微信扫码点餐助力餐饮行业“免排队，轻松点”，通过精准营销，提高门店效率，增加粘性，助力餐饮行业智慧升级。</p>
+                </div>
+                <div class="text-mask"></div>
+            </li>
+            <li style="background: url(&quot;https://wx.gtimg.com/pay/img/home/solution/4.jpg&quot;) no-repeat rgb(247, 246, 242); overflow: hidden; width: 175px;">
+                <a class="link-area" href="#" target="_blank"></a>
+                <div class="text-area">
+                    <i class="ico ico-parking"></i>
+                    <h3 class="tit underline">智慧出行</h3>
+                    <p class="txt">通过扫码缴费/乘车、自助充值和线上支付，让大家在交通、酒店和景区等方面畅行无阻，出行更无忧，效率与温度并存。</p>
+                </div>
+                <div class="text-mask"></div>
+            </li>
+            <li style="background: url(&quot;https://wx.gtimg.com/pay/img/home/solution/5.jpg&quot;) no-repeat rgb(242, 237, 234); overflow: hidden; width: 175px;">
+                <a class="link-area" href="#" target="_blank"></a>
+                <div class="text-area">
+                    <i class="ico ico-school"></i>
+                    <h3 class="tit underline">教育医疗</h3>
+                    <p class="txt">协助学校、教育机构和医院精准触达到每一位师生、医生和患者；微信小程序则可将教学、生活和医疗设施的管理线上化。</p>
+                </div>
+                <div class="text-mask"></div>
+            </li>
+            <li style="background: url(&quot;https://wx.gtimg.com/pay/img/home/solution/6.jpg&quot;) no-repeat rgb(254, 253, 251); overflow: hidden; width: 175px;">
+                <a class="link-area" href="#" target="_blank"></a>
+                <div class="text-area">
+                    <i class="ico ico-social"></i>
+                    <h3 class="tit underline">政务民生</h3>
+                    <p class="txt">微信线上办事，帮助简化医保社保、税务、签证、户政办理和生活缴费等办事流程，助力更多的人和事实现“最多跑一次”。</p>
+                </div>
+                <div class="text-mask"></div>
+            </li>
+        </ul>
+    </div>
+
+    <script src="https://wx.gtimg.com/third/jquery/jquery-1.7.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $(".accordion ul li").mouseover(function(){
+                let _index=$(this).index() || 0;
+                let size = $(".accordion ul li").length;
+                let width = $(window).width();
+                let slideWidth = width - 175 * (size - 1);
+                $(this).stop().animate({width:slideWidth},500).siblings("li").stop().animate({width:175},500);
+                $(".accordion ul li").eq(_index).addClass("selected").siblings(".accordion ul li").removeClass("selected");
+            });
+        })
+    </script>
+</body>
+</html>
