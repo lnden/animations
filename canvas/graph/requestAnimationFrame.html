@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        //第一种方式使用匿名回调函数arguments.callee
+//        ~function(){
+//            requestAnimationFrame(arguments.callee);
+//            console.log(11111111)
+//        }();
+
+        //第二种方式命名函数的方式使用
+        var demo = function(){
+            console.log(6666);
+            requestAnimationFrame(demo)
+        };
+        demo();
+    </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>绘制路径--圆弧arcTo</title>
+    <style>
+        canvas{
+            border:1px solid #f00;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="myCanvas" width="600" height="300">该浏览器不支持canvas</canvas>
+
+    <script>
+        function draw(){
+            var canvas = document.getElementById('myCanvas');
+            if(canvas.getContext){
+                var ctx = canvas.getContext('2d');
+                ctx.beginPath();
+                //画一个以（x,y）为圆心的以radius为半径的圆弧（圆），从startAngle开始到endAngle结束，按照anticlockwise给定的方向（默认为顺时针false）来生成。
+                // ctx.arc(100,100,50,0,Math.PI*1.5,false);
+                ctx.moveTo(50,50);
+                ctx.lineTo(150,50);
+                ctx.arcTo(200,50,200,100,50);
+                ctx.lineTo(200,200);
+                ctx.strokeStyle = 'blue';
+                ctx.stroke();
+            }
+        }
+        window.onload = function(){
+            draw();
+        }
+    </script>
+</body>
+</html>

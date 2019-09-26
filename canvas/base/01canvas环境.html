@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>canvas环境</title>
+    <style>
+        canvas{
+            border:1px solid #f00;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="myCanvas" width="600" height="300">该浏览器不支持canvas</canvas>
+
+    <script>
+        var canvas = document.getElementById('myCanvas');
+        if(canvas.getContext) {
+            var ctx = canvas.getContext('2d');
+            console.dir(ctx);   //查看canvas对象的属性和方法
+            ctx.fillStyle = '#f00';
+            ctx.fillRect(10, 10, 50, 50);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>绘制矩形</title>
+    <style>
+        canvas{
+            border:1px solid #f00;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="myCanvas" width="600" height="300">该浏览器不支持canvas</canvas>
+
+    <script>
+        //canvas提供了三种方法绘制[矩形(Rectangular)]
+        var canvas = document.getElementById('myCanvas');
+        if(canvas.getContext) {
+            var ctx = canvas.getContext('2d');
+
+            //1.绘制一个填充的矩形
+            ctx.fillRect(10, 10, 50, 50);
+
+            //2.绘制一个矩形的边框
+            ctx.strokeRect(60, 60, 50, 50);
+
+            //3.清除指定矩形区域，让清除部分完全透明。
+            ctx.clearRect(20, 20, 40, 40);
+
+            //4.start
+            //第四种方法是使用路径绘制矩形rect方法见demo07以后使用
+            //ctx.beginPath();
+            //ctx.rect(100,100,60,30);
+            //ctx.stroke();
+            //end
+        }
+    </script>
+</body>
+</html>

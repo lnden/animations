@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Path2D代替路径画法</title>
+    <style>
+        canvas{
+            border:1px solid #f00;
+        }
+    </style>
+</head>
+<body>
+<canvas id="myCanvas" width="600" height="300">该浏览器不支持canvas</canvas>  
+<script>
+    function draw(){
+        var canvas  = document.getElementById('myCanvas');
+        if(canvas.getContext){
+            var ctx = canvas.getContext('2d');
+            var rectangle = new Path2D();
+            rectangle.rect(10,10,50,50);
+            rectangle.moveTo(70,70);
+            rectangle.lineTo(160,70);
+            ctx.stroke(rectangle);
+        }
+    }
+    window.onload = function(){
+        draw();
+    }
+</script>
+</body>
+</html>

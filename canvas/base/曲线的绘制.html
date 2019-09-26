@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>曲线的绘制</title>
+    <style>
+        canvas{
+            border:1px solid #f00;
+        }
+    </style>
+</head>
+<body>
+<canvas id="myCanvas" width="600" height="300">该浏览器不支持canvas</canvas>
+<script>
+    function draw() {
+        var canvas = document.getElementById('myCanvas');
+        if(canvas.getContext){
+            var ctx = canvas.getContext('2d');
+            /**
+             * 曲线的绘制
+             *  1.arc(x,y,r,0,Math.PI*2,false);
+             *  2.arcTo(cx,cy,x,y,r);  cx,cy代表端点(控制点)
+             *  3.quadraticCurveTo(cx,cy,x,y);   cx,cy(代表控制点)
+             *  4.bezierCurveTo(cx1,cy1,cx2,cy2,x,y);    cx,cy(代表控制点)
+             */
+            canvas.width = 600;
+            canvas.height = 600;
+            //1.绘制圆
+            //ctx.arc(100,100,50,0,Math.PI*2,false);
+
+            //2.绘制圆弧
+            //ctx.moveTo(100,100);
+            //ctx.arcTo(200,100,200,200,100);
+
+            //3.二次贝塞尔曲线
+            //ctx.moveTo(100,100);
+            //ctx.quadraticCurveTo(200,200,100,300);
+
+            //4.三次贝塞尔曲线
+            ctx.moveTo(200,100);
+            ctx.bezierCurveTo(0,423,252,454,450,340);
+            ctx.stroke();
+        }
+    }
+    window.onload = function(){
+        draw();
+    }
+</script>
+</body>
+</html>

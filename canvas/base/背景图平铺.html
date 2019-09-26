@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>背景墙平铺</title>
+    <style>
+        canvas{
+            border:1px solid #f00;
+        }
+    </style>
+</head>
+<body>
+<canvas id="myCanvas" width="600" height="300">该浏览器不支持canvas</canvas>
+<script>
+    function draw() {
+        var canvas = document.getElementById('myCanvas');
+        if(canvas.getContext){
+            var ctx = canvas.getContext('2d');
+            /**
+             * 背景平铺
+             *  1.图片 pattern(img,'repeat-style')
+             *  2.canvas画布 pattern(canvas,'repeat-style')
+             *  3.video pattern(video,'repeat-style')
+             */
+            canvas.width = 600;
+            canvas.height = 600;
+            //1.图片填充背景
+//            var backgroundImage = new Image();
+//            backgroundImage.src = 'images/timg.jpg';
+//            backgroundImage.onload = function(){
+//                var pattern = ctx.createPattern(backgroundImage,'repeat');
+//                ctx.fillStyle = pattern;
+//                ctx.fillRect(0,0,600,600);
+//            };
+            //2.画布填充背景
+            var backCanvas = createBackgroundCanvas();
+            var pattern = ctx.createPattern(backCanvas,'repeat');
+            ctx.fillStyle = pattern;
+            ctx.fillRect(0,0,600,600);
+
+            function createBackgroundCanvas(){
+                var backCanvas = document.createElement('canvas');
+                backCanvas.width = 100;
+                backCanvas.height = 100;
+                var backCanvasContext = backCanvas.getContext('2d');
+                drawStar(backCanvasContext,50,50,50,0);
+                return backCanvas;
+            }
+
+            function drawStar(ctx,x,y,r,rot){
+                ctx.save();
+
+                ctx.translate(x,y);
+                ctx.rotate(rot/180*Math.PI);
+                ctx.scale(r,r);
+
+                starPath(ctx);
+
+                ctx.fillStyle = '#fb3';
+                ctx.fill();
+
+                ctx.restore();
+            }
+
+            function starPath(ctx){
+                ctx.beginPath();
+
+                for(var i=0;i<5;i++){
+                    ctx.lineTo(Math.cos((18+i*72)/180*Math.PI),-Math.sin((18+i*72)/180*Math.PI));
+                    ctx.lineTo(Math.cos((54+i*72)/180*Math.PI)*0.5,-Math.sin((54+i*72)/180*Math.PI)*0.5);
+                }
+
+                ctx.closePath();
+            }
+        }
+    }
+    window.onload = function(){
+        draw();
+    }
+</script>
+</body>
+</html>

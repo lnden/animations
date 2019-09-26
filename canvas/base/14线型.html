@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>线型</title>
+    <style>
+        canvas{
+            border:1px solid #f00;
+        }
+    </style>
+</head>
+<body>
+<canvas id="myCanvas" width="600" height="300">该浏览器不支持canvas</canvas>
+<script>
+    function draw() {
+        var canvas = document.getElementById('myCanvas');
+        if(canvas.getContext){
+            var ctx = canvas.getContext('2d');
+            //1.设置线条宽度
+            ctx.lineWidth = 10;
+
+            ctx.strokeRect(50,50,150,150);
+
+            ctx.beginPath();
+            ctx.lineWidth = 20;
+            //2.设置线条末端样式
+            ctx.lineCap = 'butt';
+            //ctx.lineCap = 'round';
+            //ctx.lineCap = 'square';
+            ctx.moveTo(20,20);
+            ctx.lineTo(100,20);
+            ctx.stroke();
+        }
+
+    }
+    window.onload = function(){
+        draw();
+    }
+</script>
+</body>
+</html>

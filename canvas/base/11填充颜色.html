@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>填充颜色</title>
+    <style>
+        canvas{
+            border:1px solid #f00;
+        }
+    </style>
+</head>
+<body>
+<canvas id="myCanvas" width="600" height="300">该浏览器不支持canvas</canvas>
+<script>
+    function draw(){
+        var canvas  = document.getElementById('myCanvas');
+        if(canvas.getContext){
+            var ctx = canvas.getContext('2d');
+
+            ctx.fillStyle = 'red';
+            ctx.fillStyle = '#009';
+            ctx.fillStyle = 'rgb(0,255,255)';
+            ctx.fillStyle = 'rgba(255,0,0,0.3)';
+
+            ctx.fillRect(10,10,50,50);
+
+        }
+    }
+
+    //    function draw() {
+    //        var ctx = document.getElementById('myCanvas').getContext('2d');
+    //        for (var i=0;i<6;i++){
+    //            for (var j=0;j<6;j++){
+    //                ctx.fillStyle = 'rgb(' + Math.floor(255-42.5*i) + ',' +
+    //                    Math.floor(255-42.5*j) + ',0)';
+    //                ctx.fillRect(j*25,i*25,25,25);
+    //            }
+    //        }
+    //    }
+    window.onload = function(){
+        draw();
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>图形变换</title>
+    <style>
+        canvas{
+            border:1px solid #f00;
+        }
+    </style>
+</head>
+<body>
+<canvas id="myCanvas" width="600" height="300">该浏览器不支持canvas</canvas>
+<script>
+    function draw() {
+        var canvas = document.getElementById('myCanvas');
+        if(canvas.getContext){
+            var ctx = canvas.getContext('2d');
+            /**
+             * translate(x,y)位移
+             * 不仅图形发生缩放的变化，还引起了一些副作用
+             *      1.左上角的坐标发生了变化
+             *      2.边框，线条的宽度发生了变化
+             */
+
+            /**
+             * rotate(deg)旋转
+             * 不仅图形发生缩放的变化，还引起了一些副作用
+             *      1.左上角的坐标发生了变化
+             *      2.边框，线条的宽度发生了变化
+             */
+
+            /**
+             * scale(x,y)缩放
+             * 不仅图形发生缩放的变化，还引起了一些副作用
+             *      1.左上角的坐标发生了变化
+             *      2.边框，线条的宽度发生了变化
+             */
+            ctx.scale(1,1);
+            ctx.strokeRect(10,10,50,50);
+            ctx.scale(2,2);
+            ctx.strokeRect(10,10,50,50);
+            ctx.scale(2,2);
+            ctx.strokeRect(10,10,50,50);
+        }
+    }
+    window.onload = function(){
+        draw();
+    }
+</script>
+</body>
+</html>

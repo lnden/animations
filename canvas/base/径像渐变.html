@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>径像渐变</title>
+    <style>
+        canvas{
+            border:1px solid #f00;
+        }
+    </style>
+</head>
+<body>
+<canvas id="myCanvas" width="600" height="300">该浏览器不支持canvas</canvas>
+<script>
+    function draw() {
+        var canvas = document.getElementById('myCanvas');
+        if(canvas.getContext){
+            var ctx = canvas.getContext('2d');
+            /**
+             * 径像渐变 createRadialGradient(x0,y0,r0,x1,y1,r1)
+             * 颜色开始渐变位置 addColorStop(0.0,'#fff')
+             * 注意：1.可以添加多个渐变颜色(0.0) || (0.25) || (0.5) || (0.75) || (1.0)
+             *      2.渐变线可以随便更改
+             */
+            canvas.width = 600;
+            canvas.height = 600;
+            var linearGrad = ctx.createRadialGradient(300,300,0,300,300,400);
+            linearGrad.addColorStop(0.0,'#fff');
+            linearGrad.addColorStop(0.25,'yellow');
+            linearGrad.addColorStop(0.5,'green');
+            linearGrad.addColorStop(0.75,'blue');
+            linearGrad.addColorStop(1.0,'#000');
+            ctx.fillStyle = linearGrad;
+            ctx.fillRect(0,0,600,600);
+        }
+    }
+    window.onload = function(){
+        draw();
+    }
+</script>
+</body>
+</html>

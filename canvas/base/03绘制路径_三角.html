@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>绘制路径--三角</title>
+    <style>
+        canvas{
+            border:1px solid #f00;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="myCanvas" width="600" height="300">该浏览器不支持canvas</canvas>
+
+    <script>
+        //canvas绘制[路径(path)]
+        var canvas = document.getElementById('myCanvas');
+        if(canvas.getContext) {
+            var ctx = canvas.getContext('2d');
+
+            //1.你需要创建路径起始点
+            ctx.beginPath();
+
+            //2.将笔触移动到指定的坐标x以及y上
+            ctx.moveTo(300, 150);
+
+            //3.使用[画线]命令
+            ctx.lineTo(300, 50);
+            ctx.lineTo(400, 50);
+
+            //4.闭合绘画指令，从新指向上线问
+            ctx.closePath();
+
+            //5.绘制实现图案
+            ctx.stroke();       //通过线条来绘制图形轮廓
+            ctx.fill();         //通过填充路径的内容区域生成实心的图形
+
+            //**分别实现两种三角形
+            // 填充三角形
+            ctx.beginPath();
+            ctx.moveTo(25, 25);
+            ctx.lineTo(105, 25);
+            ctx.lineTo(25, 105);
+            ctx.fill();
+
+            // 描边三角形
+            ctx.beginPath();
+            ctx.moveTo(125, 125);
+            ctx.lineTo(125, 45);
+            ctx.lineTo(45, 125);
+            ctx.closePath();        //此处描边与填充对比
+            ctx.stroke();
+        }
+    </script>
+</body>
+</html>
